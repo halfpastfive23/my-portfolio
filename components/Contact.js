@@ -5,7 +5,9 @@ export default function Contact() {
   return (
     <ScrollFadeIn>
     <section id="contact" className="py-20">
-      <div className="container mx-auto px-6 md:px-12 text-center">
+      <div className="container mx-auto px-6 md:px-12 text-center" 
+      style={{ backdropFilter: "blur(1px) ", WebkitBackdropFilter: "blur(8px)" }}
+      >
         <h2 className="text-3xl font-bold mb-6 text-[#FFFFFF]">Contact</h2>
         <p className="text-[#FFFFFF] mb-8">
           Let’s connect! Feel free to reach out via email or social media.
