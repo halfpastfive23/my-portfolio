@@ -30,7 +30,7 @@ export default function Contact() {
 
               {/* LinkedIn Button */}
               <a
-                href="https://www.linkedin.com/manojkumarparkkunan"
+                href="www.linkedin.com/in/manojkumar-parkkunan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-[#0077B5] text-white rounded-lg shadow-lg hover:scale-105 hover:bg-[#005983] transition transform duration-300"
