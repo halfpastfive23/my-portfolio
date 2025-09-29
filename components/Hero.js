@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center pt-14"
-      style={{ backgroundImage: "url('/HeroImage1.jpg')" }} // Replace with your image path
+      style={{ backgroundImage: "url('/HeroImage1.jpeg')" }} 
     >
       {/* Content container */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
