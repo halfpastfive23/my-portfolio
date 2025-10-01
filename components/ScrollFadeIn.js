@@ -1,16 +1,35 @@
-"use client"; 
+"use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 
-export default function ScrollFadeIn({ children, delay = 0, y = 40}) {
-    return (
-        <motion.div
-        initial={{ opacity: 0, y }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay, duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-        >
+export default function ScrollFadeIn({ children }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const domRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Only observe once
+        }
+      });
+    });
+
+    observer.observe(domRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={domRef}
+      className={`transition-opacity duration-1000 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ willChange: "opacity, transform" }}
+    >
       {children}
- </motion.div>
-    );
+    </div>
+  );
 }

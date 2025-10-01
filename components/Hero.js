@@ -10,7 +10,7 @@ export default function Hero() {
       style={{ backgroundImage: "url('/HeroImage1.jpeg')" }} 
     >
       {/* Content container */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
+      <div className="container relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
         {/* Heading */}
         <h2 className="text-4xl font-serif md:text-6xl font-extrabold text-white">
           <TypeAnimation

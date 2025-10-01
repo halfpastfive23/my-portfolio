@@ -1,3 +1,5 @@
+"use client";
+
 import ScrollFadeIn from "./ScrollFadeIn";
 import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 
@@ -18,6 +20,7 @@ export default function Contact() {
             <p className="text-white mb-8">
               Let’s connect! Feel free to reach out via email or LinkedIn.
             </p>
+
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               {/* Email Button */}
               <a
@@ -30,7 +33,7 @@ export default function Contact() {
 
               {/* LinkedIn Button */}
               <a
-                href="www.linkedin.com/in/manojkumar-parkkunan"
+                href="https://www.linkedin.com/in/manojkumar-parkkunan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-[#0077B5] text-white rounded-lg shadow-lg hover:scale-105 hover:bg-[#005983] transition transform duration-300"
@@ -43,5 +46,5 @@ export default function Contact() {
         </div>
       </section>
     </ScrollFadeIn>
-  ); 
+  );
 }
