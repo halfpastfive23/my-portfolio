@@ -7,18 +7,27 @@ export default function ScrollFadeIn({ children }) {
   const domRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target); // Only observe once
-        }
-      });
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of element is visible
+    );
 
-    observer.observe(domRef.current);
+    if (domRef.current) {
+      observer.observe(domRef.current);
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      if (domRef.current) {
+        observer.unobserve(domRef.current);
+      }
+    };
   }, []);
 
   return (

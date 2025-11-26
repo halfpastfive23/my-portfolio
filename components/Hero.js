@@ -6,25 +6,26 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section
+      id="home"
       className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center pt-14"
-      style={{ backgroundImage: "url('/HeroImage1.jpeg')" }} 
+      style={{ backgroundImage: "url('/HeroImage2.jpg')" }}
     >
       {/* Content container */}
-      <div className="container relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
-        {/* Heading */}
-        <h2 className="text-4xl font-serif md:text-6xl font-extrabold text-white">
+      <div className="container relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center text-center text-white">
+        {/* Heading with type animation */}
+        <h2 className="text-4xl md:text-6xl font-extrabold font-serif mb-4 md:mb-6">
           <TypeAnimation
             sequence={["Hello, I’m Manojkumar", 1000]}
             speed={50}
             wrapper="span"
             repeat={0}
-            style={{ color: "#FFFFFF", display: "inline-block" }}
+            style={{ display: "inline-block" }}
             cursor={true}
           />
         </h2>
 
-        {/* Paragraph */}
-        <p className="mt-4 text-lg font-serif text-gray-200 max-w-xl">
+        {/* Subheading with type animation */}
+        <p className="mt-4 text-lg md:text-xl font-serif max-w-2xl">
           <TypeAnimation
             sequence={[
               1500,
@@ -37,13 +38,14 @@ export default function Hero() {
           />
         </p>
 
-        {/* Buttons */}
+        {/* Buttons with hover effects */}
         <motion.div
           className="mt-8 flex gap-4 justify-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 6.5, duration: 0.6, ease: "easeOut" }}
+          transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
         >
+          {/* View My Work button */}
           <motion.a
             href="https://github.com/halfpastfive23"
             target="_blank"
@@ -58,6 +60,7 @@ export default function Hero() {
             View My Work
           </motion.a>
 
+          {/* Download CV button */}
           <motion.a
             href="/Internship_Resume.pdf"
             download
@@ -66,7 +69,7 @@ export default function Hero() {
               y: -4,
               boxShadow: "0px 8px 15px rgba(0,0,0,0.5)",
             }}
-            className="font-serif px-6 py-3 text-[#ffffff] rounded-lg shadow-lg bg-[#0e676cac]"
+            className="font-serif px-6 py-3 text-white rounded-lg shadow-lg bg-[#0e676cac]"
           >
             Download CV
           </motion.a>

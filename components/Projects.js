@@ -51,9 +51,9 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20">
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <ScrollFadeIn>
-          <h2 className="text-3xl font-bold mb-8 text-white">Projects</h2>
+          <h2 className="text-4xl font-bold mb-6 text-black text-center">Projects</h2>
         </ScrollFadeIn>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -72,6 +72,7 @@ export default function Projects() {
                   )`,
                   backgroundSize: "400% 400%",
                   animation: "titaniumShift 8s ease infinite",
+                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
                 }}
               >
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>

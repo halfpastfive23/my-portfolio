@@ -2,9 +2,13 @@
 
 import ScrollFadeIn from "./ScrollFadeIn";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 export default function About() {
+  const controls = useAnimation();
+
+  // No change needed for floating animation, but no y on hover — only scale
   return (
     <ScrollFadeIn>
       <section id="about" className="py-20 bg-white font-sans">
@@ -39,7 +43,7 @@ export default function About() {
             className="md:w-5/12 cursor-pointer rounded-full overflow-hidden shadow-xl"
             style={{ width: 400, height: 400 }}
             animate={{
-              y: [0, -15, 0], // floating up and down by 15px
+              y: [0, -15, 0], // floating up/down
               transition: {
                 duration: 4,
                 repeat: Infinity,
@@ -47,7 +51,10 @@ export default function About() {
                 ease: "easeInOut",
               },
             }}
-            whileHover={{ scale: 1.05, y: -20 }} // slightly bigger and lifted on hover
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3, ease: "easeInOut" },
+            }}
           >
             <Image
               src="/AboutImage.jpeg"
