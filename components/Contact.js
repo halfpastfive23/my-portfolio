@@ -7,9 +7,11 @@ export default function Contact() {
   return (
     <ScrollFadeIn>
       <section id="contact">
-        <div className="w-full py-20">
+        <div className="bg-[#f4f1f4] w-full py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-4xl font-bold mb-6 text-black">Let&apos;s Connect</h2>
+            <h2 className="text-4xl font-bold mb-6 text-black">
+              Let&apos;s Connect
+            </h2>
             <p className="text-black mb-8 max-w-xl mx-auto">
               Feel free to reach out via email or LinkedIn.
             </p>
