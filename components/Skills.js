@@ -1,87 +1,149 @@
 "use client";
 
-import React from "react";
-import ScrollFadeIn from "./ScrollFadeIn";
+import { Code2, Palette, Database, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "Next.js", icon: "/icons/nextjs.png", desc: "Framework" },
+  {
+    name: "Next.js",
+    icon: "/icons/nextjs.png",
+    category: "Framework",
+    gradient: "from-gray-500 to-gray-700",
+  },
   {
     name: "Tailwind CSS",
     icon: "/icons/tailwind.png",
-    desc: "Utility-first CSS framework",
+    category: "Styling",
+    gradient: "from-cyan-500 to-blue-600",
   },
   {
     name: "JavaScript",
     icon: "/icons/javascript.png",
-    desc: "Programming Language",
+    category: "Language",
+    gradient: "from-yellow-500 to-orange-600",
   },
-  { name: "HTML", icon: "/icons/html.png", desc: "Programming Language" },
-  { name: "MySQL", icon: "/icons/mysql.png", desc: "Database" },
+  {
+    name: "HTML",
+    icon: "/icons/html.png",
+    category: "Language",
+    gradient: "from-orange-500 to-red-600",
+  },
+  {
+    name: "MySQL",
+    icon: "/icons/mysql.png",
+    category: "Database",
+    gradient: "from-blue-500 to-indigo-600",
+  },
   {
     name: "TypeScript",
     icon: "/icons/typescript.png",
-    desc: "Programming Language",
+    category: "Language",
+    gradient: "from-blue-600 to-blue-800",
   },
 ];
 
 export default function Skills() {
   return (
-    <ScrollFadeIn>
-      <section
-        id="skills"
-        className="relative py-24 bg-[#000000] text-white overflow-hidden"
-      >
-        {/* Background subtle pattern */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[url('/grid.svg')] bg-cover"></div>
+    <section
+      id="skills"
+      className="relative py-16 bg-[#0A0A0A] overflow-hidden"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl" />
+      </div>
 
-        <div className="relative z-10 container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12 text-center text-[#ffffff]"
-          >
-            Tech Stack
-          </motion.h2>
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-5 h-5 text-purple-400" />
+            <span className="text-purple-400 font-semibold tracking-wider uppercase text-xs">
+              Expertise
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+            Tech{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent">
+              Stack
+            </span>
+          </h2>
+        </motion.div>
 
-          {/* Skill Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative p-6 rounded-2xl bg-[#131313] border border-[#2a2a2a] shadow-[0_0_20px_rgba(0,0,0,0.35)] hover:border-[#f6a623] transition-all duration-300"
-              >
-                {/* Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 blur-xl bg-[#f6a623] transition-all duration-500 rounded-2xl"></div>
+        {/* Skills Grid - Bento Box Style */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {skills.map((skill, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative"
+            >
+              <div className="relative bg-[#141414] rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-300 h-full flex flex-col items-center text-center">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
 
-                {/* Icon */}
-                <div className="relative flex items-center gap-4 z-10">
-                  <div className="w-14 h-14 rounded-xl bg-[#1c1c1c] border border-[#292929] flex items-center justify-center group-hover:border-[#f6a623] transition-all duration-300">
+                {/* Icon Container */}
+                <div
+                  className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${skill.gradient} p-0.5 mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="w-full h-full bg-[#0A0A0A] rounded-xl flex items-center justify-center">
                     <img
                       src={skill.icon}
                       alt={skill.name}
-                      className="w-8 h-8 opacity-90 group-hover:opacity-100 transition-all duration-300"
+                      className="w-7 h-7 object-contain"
                     />
                   </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold group-hover:text-[#f6a623] transition-colors duration-300">
-                      {skill.name}
-                    </h3>
-                    <p className="text-sm opacity-60">{skill.desc}</p>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Text */}
+                <h3 className="text-sm font-semibold text-white mb-1 group-hover:text-purple-400 transition-colors">
+                  {skill.name}
+                </h3>
+                <p className="text-xs text-gray-500">{skill.category}</p>
+
+                {/* Bottom Accent */}
+                <div
+                  className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${skill.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </ScrollFadeIn>
+
+        {/* Categories Legend */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-12 flex flex-wrap justify-center gap-6"
+        >
+          <div className="flex items-center gap-2">
+            <Code2 className="w-4 h-4 text-emerald-400" />
+            <span className="text-sm text-gray-400">
+              Languages & Frameworks
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Palette className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm text-gray-400">Styling & Design</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Database className="w-4 h-4 text-blue-400" />
+            <span className="text-sm text-gray-400">Database & Backend</span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

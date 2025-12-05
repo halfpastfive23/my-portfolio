@@ -25,14 +25,14 @@ body {
   color: var(--background);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark mode overrides for the container using .dark class */
 .dark .custom-container {
-  background-color: #1e293b;  /* Tailwind slate-800 */
-  color: #e2e8f0;             /* Tailwind slate-200 */
+  background-color: #1e293b; /* Tailwind slate-800 */
+  color: #e2e8f0; /* Tailwind slate-200 */
 }
 
 /* Titanium animated gradient background */

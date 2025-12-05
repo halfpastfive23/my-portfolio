@@ -1,113 +1,207 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { FaGithub } from "react-icons/fa";
+import { ArrowUpRight, Github, Code2, Terminal, Sparkles } from "lucide-react";
 
-function ScrollFadeIn({ children }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const domRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target); // animate once
-        }
-      });
-    });
-
-    observer.observe(domRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={domRef}
-      className={`transition-opacity duration-1000 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-      style={{ willChange: "opacity, transform" }}
-    >
-      {children}
-    </div>
-  );
-}
-
-export default function Projects() {
-  const projectList = [
+export default function ProjectShowcase() {
+  const projects = [
     {
+      id: 1,
       title: "Budget Tracker System",
       description: "A web app to manage income and expenses efficiently.",
       github: "https://github.com/halfpastfive23/budget-tracker",
+      tags: ["Web App", "Finance", "Full-Stack"],
+      color: "#10B981",
+      gradient: "from-emerald-500 to-teal-600",
+      icon: Code2,
     },
     {
+      id: 2,
       title: "Neovim Configurations",
-      description: "Custom Neovim setup for improved developer productivity.",
+      description: "Custom Neovim setup for developer productivity.",
       github: "https://github.com/halfpastfive23/mynvimconfiguration",
+      tags: ["Development", "Config", "Productivity"],
+      color: "#8B5CF6",
+      gradient: "from-purple-500 to-indigo-600",
+      icon: Terminal,
     },
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <ScrollFadeIn>
-          <h2 className="text-4xl font-bold mb-12 text-black text-center">
-            Projects
-          </h2>
-        </ScrollFadeIn>
+    <div className="h-[52vh] bg-gradient-to-br from-[#0A0A0A] via-[#0F0F0F] to-[#0A0A0A]">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-5 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-5 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
+        </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projectList.map((project, index) => (
-            <ScrollFadeIn key={index}>
-              <div
-                className="relative p-6 rounded-lg text-black overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                style={{
-                  background: `linear-gradient(
-                    270deg,
-                    #b0b7bb,
-                    #dde1e4,
-                    #5a6a72,
-                    #9ca4a8,
-                    #b0b7bb
-                  )`,
-                  backgroundSize: "400% 400%",
-                  animation: "titaniumShift 8s ease infinite",
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-              >
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="mb-4">{project.description}</p>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View ${project.title} GitHub repository`}
-                  className="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition transform"
-                >
-                  <FaGithub size={22} className="text-gray-800" />
-                </a>
-              </div>
-            </ScrollFadeIn>
-          ))}
+        <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-14">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-purple-400" />
+            <span className="text-purple-400 font-semibold tracking-wider uppercase text-xs">
+              Personal
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+            Featured
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-emerald-400 bg-clip-text text-transparent">
+              Projects
+            </span>
+          </h1>
+          <p className="text-base text-gray-400 max-w-xl leading-relaxed">
+            Innovative solutions built with modern technologies and clean
+            architecture.
+          </p>
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes titaniumShift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
-    </section>
+      {/* Projects Section */}
+      <div className="max-w-7xl mx-auto px-6 py-8 md:py-1">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Project 1 */}
+          <div className="lg:col-span-7 group relative">
+            <div className="relative bg-gradient-to-br from-[#141414] to-[#0D0D0D] rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-500">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-all duration-500" />
+
+              <div className="relative p-6 md:p-8 flex flex-col h-full">
+                {/* Icon + GitHub */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Code2 className="w-6 h-6 text-white" />
+                  </div>
+                  <a
+                    href={projects[0].github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg bg-gray-800/50 hover:bg-gray-800 flex items-center justify-center border border-gray-700 hover:border-emerald-500 transition-all group/btn"
+                  >
+                    <Github className="w-4 h-4 text-gray-400 group-hover/btn:text-emerald-400 transition-colors" />
+                  </a>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+                    {projects[0].title}
+                  </h2>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                    {projects[0].description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {projects[0].tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* View Project Link */}
+                <a
+                  href={projects[0].github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:gap-3 transition-all"
+                >
+                  View Project
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+
+                {/* Accent Line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </div>
+            </div>
+          </div>
+
+          {/* Project 2 */}
+          <div className="lg:col-span-5 group relative">
+            <div className="relative bg-gradient-to-br from-[#141414] to-[#0D0D0D] rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all duration-500">
+              {/* Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-500" />
+
+              <div className="relative p-6 md:p-8 flex flex-col h-full">
+                {/* Icon + GitHub */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Terminal className="w-6 h-6 text-white" />
+                  </div>
+                  <a
+                    href={projects[1].github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg bg-gray-800/50 hover:bg-gray-800 flex items-center justify-center border border-gray-700 hover:border-purple-500 transition-all group/btn"
+                  >
+                    <Github className="w-4 h-4 text-gray-400 group-hover/btn:text-purple-400 transition-colors" />
+                  </a>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                    {projects[1].title}
+                  </h2>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                    {projects[1].description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {projects[1].tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* View Project Link */}
+                <a
+                  href={projects[1].github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:gap-3 transition-all"
+                >
+                  View Project
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+
+                {/* Accent Line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Stats Section */}
+      <div className="max-w-7xl mx-auto px-6 py-6 mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-[#141414] rounded-xl p-6 border border-gray-800">
+          <div className="text-3xl font-bold text-white mb-1">2+</div>
+          <div className="text-sm text-gray-400">Projects Built</div>
+        </div>
+        <div className="bg-[#141414] rounded-xl p-6 border border-gray-800">
+          <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent mb-1">
+            Open Source
+          </div>
+          <div className="text-sm text-gray-400">All Projects Available</div>
+        </div>
+        <div className="bg-[#141414] rounded-xl p-6 border border-gray-800">
+          <div className="text-3xl font-bold text-white mb-1">∞</div>
+          <div className="text-sm text-gray-400">Learning & Building</div>
+        </div>
+      </div>
+    </div>
   );
 }
