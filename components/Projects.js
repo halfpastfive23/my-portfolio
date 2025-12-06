@@ -53,7 +53,7 @@ export default function ProjectShowcase() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
             Featured
             <br />
-            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#6cb2be] to-[#1f539c] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#6cb2be] to-[#0e4490] bg-clip-text text-transparent">
               Projects
             </span>
           </h1>
