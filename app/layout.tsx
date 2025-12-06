@@ -1,13 +1,13 @@
 "use client";
 
-import { Geist, Geist_Mono,} from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { useState, useEffect, ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -27,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-opacity duration-500 ${
+        className={`${geistSans.variable} ${
+          geistMono.variable
+        } antialiased transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       >

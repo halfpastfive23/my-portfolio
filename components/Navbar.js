@@ -69,7 +69,7 @@ export default function Navbar() {
     const id = href.replace("#", "");
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "auto" });  // instant jump, change to 'smooth' if preferred
+      element.scrollIntoView({ behavior: "auto" }); // instant jump, change to 'smooth' if preferred
     }
   };
 

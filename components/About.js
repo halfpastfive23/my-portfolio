@@ -26,7 +26,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-[#0A0A0A] overflow-hidden">
+    <section id="about" className="relative py-20 bg-[#0c1826] overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl" />

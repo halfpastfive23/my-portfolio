@@ -27,12 +27,12 @@ export default function ProjectShowcase() {
   ];
 
   return (
-    <div className="h-[52vh] bg-gradient-to-br from-[#0A0A0A] via-[#0F0F0F] to-[#0A0A0A]">
+    <div className="bg-[#0c1826] pb-20 md:pb-28">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-10 left-5 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-5 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-10 left-5 w-48 h-44 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-5 w-64 h-54 bg-emerald-500/10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-14">

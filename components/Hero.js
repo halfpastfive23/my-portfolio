@@ -1,169 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Download } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Github, Download, ArrowDown, Code2, Sparkles } from "lucide-react";
 
 export default function Hero() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const newParticles = Array.from({ length: 20 }).map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+    }));
+    setParticles(newParticles);
+  }, []);
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
-    >
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/80 to-[#0A0A0A] z-10" />
-        <motion.img
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.4 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          src="/HeroImage2.jpg"
-          alt="Workspace"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-visible bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
-      {/* Gradient Orbs */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute inset-0 overflow-visible pointer-events-none">
         <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
+          className="absolute top-[25vh] left-[-10vw] w-[20vw] h-[20vw] bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-float"
+          style={{
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+            transition: "transform 0.5s ease-out",
+          }}
         />
+
+        <div
+          className="absolute bottom-[25vh] right-[-15vw] w-[30vw] h-[30vw] bg-gradient-to-tl from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-float-delayed"
+          style={{
+            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
+            transition: "transform 0.5s ease-out",
+          }}
+        />
+
+        <div className="absolute top-[50%] left-[50%] w-[10vw] h-[10vw] bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-2xl animate-pulse-slow" />
+
+        {particles.map((p, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-twinkle"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animationDelay: `${p.delay}s`,
+            }}
+          />
+        ))}
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
-        >
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-sm text-gray-300 font-medium">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-visible">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-sm mb-8 animate-fade-in-up">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span className="text-sm text-emerald-300 font-medium">
             Available for opportunities
           </span>
-        </motion.div>
+        </div>
 
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
-        >
-          Hello, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-emerald-400 bg-clip-text text-transparent">
+        {/* TITLE FIXED HERE */}
+        <h1 className="flex flex-col font-bold text-white mb-6 leading-none">
+          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4">
+            Hello, I&apos;m
+          </span>
+
+          <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent animate-gradient leading-[1.12]">
             Manojkumar
           </span>
-        </motion.h1>
+        </h1>
 
-        {/* Subheading */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
-        >
+        <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed animate-fade-in-up animation-delay-400">
           A passionate Software Engineering student building modern web
           experiences with{" "}
-          <span className="text-purple-400 font-semibold">Next.js</span>,{" "}
-          <span className="text-emerald-400 font-semibold">Tailwind CSS</span>,
+          <span className="text-cyan-400 font-semibold inline-flex items-center gap-1">
+            <Code2 className="w-5 h-5 inline" />
+            Next.js
+          </span>
+          , <span className="text-blue-400 font-semibold">Tailwind CSS</span>,
           and cutting-edge technologies.
-        </motion.p>
+        </p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up animation-delay-600">
           <a
             href="https://github.com/halfpastfive23"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] flex items-center gap-2"
+            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <span className="relative z-10 flex items-center gap-2">
               <Github className="w-5 h-5" />
               View My Work
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Sparkles className="absolute right-2 top-2 w-4 h-4 text-white/50 group-hover:animate-spin" />
           </a>
 
           <a
             href="/Internship_Resume.pdf"
             download
-            className="group relative px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-emerald-500/50 flex items-center gap-2"
+            className="group px-8 py-4 bg-white/5 border-2 border-white/10 backdrop-blur-sm rounded-xl font-semibold text-white flex items-center gap-2 transition-all duration-300 hover:bg-white/10 hover:border-cyan-500/50 hover:scale-105 active:scale-95"
           >
-            <Download className="w-5 h-5" />
+            <Download className="w-5 h-5 group-hover:animate-bounce" />
             Download CV
           </a>
-        </motion.div>
+        </div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
-        >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
-              2+
-            </div>
-            <div className="text-sm text-gray-500">Projects</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">
-              6+
-            </div>
-            <div className="text-sm text-gray-500">Technologies</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">
-              ∞
-            </div>
-            <div className="text-sm text-gray-500">Learning</div>
-          </div>
-        </motion.div>
+        <div className="flex flex-wrap justify-center gap-3 mb-16 animate-fade-in-up animation-delay-800">
+          {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"].map(
+            (tech, index) => (
+              <span
+                key={tech}
+                className="px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full text-sm text-slate-300 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 cursor-default hover:scale-110"
+                style={{ animationDelay: `${800 + index * 100}ms` }}
+              >
+                {tech}
+              </span>
+            )
+          )}
+        </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 cursor-pointer"
-        >
-          <span className="text-xs text-gray-400 uppercase tracking-wider">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-fade-in animation-delay-1200">
+        <div className="flex flex-col items-center gap-2 cursor-pointer group">
+          <span className="text-xs text-slate-400 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
             Scroll
           </span>
-          <ArrowDown className="w-5 h-5 text-gray-400" />
-        </motion.div>
-      </motion.div>
-
-      <style jsx global>{`
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-        .animate-pulse {
-          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
+          <ArrowDown className="w-5 h-5 text-slate-400 animate-bounce group-hover:text-cyan-400 transition-colors" />
+        </div>
+      </div>
     </section>
   );
 }
