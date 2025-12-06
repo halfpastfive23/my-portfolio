@@ -61,14 +61,14 @@ export default function Skills() {
           className="mb-12 text-center sm:text-left"
         >
           <div className="flex items-center justify-center sm:justify-start gap-2 mb-3">
-            <Sparkles className="w-5 h-5 text-purple-400" />
-            <span className="text-purple-400 font-semibold tracking-wider uppercase text-xs">
+            <Sparkles className="w-5 h-5 text-[#dbc130]" />
+            <span className="text-[#dbc130] font-semibold tracking-wider uppercase text-xs">
               Expertise
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
             Tech{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#6cb2be] to-[#1f539c] bg-clip-text text-transparent">
               Stack
             </span>
           </h2>

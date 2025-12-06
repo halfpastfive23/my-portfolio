@@ -30,7 +30,7 @@ export default function About() {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -120,14 +120,16 @@ export default function About() {
             className="lg:col-span-7 space-y-6"
           >
             {/* Description Card */}
-            <div className="bg-[#141414] rounded-2xl p-8 border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+            <div className="bg-[#ffffffcf] rounded-2xl p-8 border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
                   <User className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">About</h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <h3 className="text-xl font-bold text-[#0000008d] mb-2">
+                    About
+                  </h3>
+                  <p className="text-[#0000008d] leading-relaxed">
                     I&apos;m a passionate Software Engineering student with a
                     background in Information Technology. I love turning ideas
                     into working software, whether it&apos;s building web apps,
@@ -148,7 +150,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-[#141414] rounded-xl p-5 border border-gray-800 hover:border-purple-500/50 transition-all duration-300"
+                  className="group relative bg-[#13262fee] rounded-xl p-5 border border-gray-800 hover:border-purple-500/50 transition-all duration-300"
                 >
                   {/* Glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />

@@ -121,20 +121,6 @@ export default function Hero() {
             Download CV
           </a>
         </div>
-
-        <div className="flex flex-wrap justify-center gap-3 mb-16 animate-fade-in-up animation-delay-800">
-          {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"].map(
-            (tech, index) => (
-              <span
-                key={tech}
-                className="px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full text-sm text-slate-300 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 cursor-default hover:scale-110"
-                style={{ animationDelay: `${800 + index * 100}ms` }}
-              >
-                {tech}
-              </span>
-            )
-          )}
-        </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-fade-in animation-delay-1200">
