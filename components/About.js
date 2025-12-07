@@ -50,7 +50,7 @@ export default function About() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
             Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#6cb2be] to-[#0e4490] bg-clip-text text-transparent">
+            <span className="bg-[#FFFFFF] bg-clip-text text-transparent">
               Manojkumar
             </span>
           </h2>

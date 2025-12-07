@@ -182,7 +182,7 @@ export default function Contact3D() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-emerald-400 bg-clip-text text-transparent">
+          <span className="bg-[#ffffffe5] bg-clip-text text-transparent">
             Let&apos;s Connect
           </span>
         </motion.h2>
