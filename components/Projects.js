@@ -76,7 +76,7 @@ export default function ProjectShowcase() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7 group relative"
           >
-            <div className="relative bg-gradient-to-br from-[#141414] to-[#0D0D0D] rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-[#002c65] to-[#000000] rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-500">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-all duration-500" />
@@ -84,7 +84,7 @@ export default function ProjectShowcase() {
               <div className="relative p-6 md:p-8 flex flex-col h-full">
                 {/* Icon + GitHub */}
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1677f6] to-[#00000089] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Code2 className="w-6 h-6 text-white" />
                   </div>
 
@@ -145,7 +145,7 @@ export default function ProjectShowcase() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-5 group relative"
           >
-            <div className="relative bg-gradient-to-br from-[#141414] to-[#0D0D0D] rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-[#150036] to-[#0D0D0D] rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all duration-500">
               {/* Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-500" />
@@ -153,7 +153,7 @@ export default function ProjectShowcase() {
               <div className="relative p-6 md:p-8 flex flex-col h-full">
                 {/* Icon + GitHub */}
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#b20ff8] to-[#000000] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Terminal className="w-6 h-6 text-white" />
                   </div>
 
@@ -161,7 +161,7 @@ export default function ProjectShowcase() {
                     href={projects[1].github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-gray-800/50 hover:bg-gray-800 flex items-center justify-center border border-gray-700 hover:border-purple-500 transition-all group/btn"
+                    className="w-10 h-10 rounded-lg bg-[#7e04914b] hover:bg-gray-800 flex items-center justify-center border border-gray-700 hover:border-purple-500 transition-all group/btn"
                   >
                     <Github className="w-4 h-4 text-gray-400 group-hover/btn:text-purple-400 transition-colors" />
                   </a>
@@ -169,7 +169,7 @@ export default function ProjectShowcase() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-[#fbfabf] transition-colors duration-300">
                     {projects[1].title}
                   </h2>
 
@@ -182,7 +182,7 @@ export default function ProjectShowcase() {
                     {projects[1].tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20"
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-[#f3f3a8] border border-[#f3f3a8]"
                       >
                         {tag}
                       </span>
@@ -201,7 +201,7 @@ export default function ProjectShowcase() {
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
 
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#f4f7d7] to-[#fcec82] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             </div>
           </motion.div>

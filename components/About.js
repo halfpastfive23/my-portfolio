@@ -158,7 +158,7 @@ export default function About() {
                   className="group relative bg-[#13262fee] rounded-xl p-5 border border-gray-800 hover:border-[#7300ff] transition-all duration-300"
                 >
                   {/* Glow for group of small containers*/}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#e3d0f1] via-[#c91313] to-[#1c0189] opacity-70 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#020491] via-[#9a85c0] to-[#021370] opacity-70 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
 
                   {/* Icon */}
                   <div
@@ -169,10 +169,10 @@ export default function About() {
 
                   {/* Text */}
                   <div className="relative">
-                    <p className="text-xs text-[#f4f3f3e1] mb-1">
+                    <p className="text-xs text-[#ffffffd3] mb-1">
                       {item.label}
                     </p>
-                    <p className="text-sm font-semibold text-[#f3f5f4] group-hover:text-[#01c5b4] transition-colors">
+                    <p className="text-sm font-semibold text-[#e7e3e3] group-hover:text-[#ffffff] transition-colors">
                       {item.value}
                     </p>
                   </div>
