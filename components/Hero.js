@@ -42,7 +42,7 @@ export default function Hero() {
         />
 
         <div
-          className="absolute bottom-[25vh] right-[-15vw] w-[30vw] h-[30vw] bg-gradient-to-tl from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-float-delayed"
+          className="absolute bottom-[25vh] right-[-15vw] w-[30vw] h-[30vw] bg-gradient-to-tl from-[emerald-500/20] to-teal-500/20 rounded-full blur-3xl animate-float-delayed"
           style={{
             transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
             transition: "transform 0.5s ease-out",
@@ -102,20 +102,20 @@ export default function Hero() {
             href="https://github.com/halfpastfive23"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
+            className="group relative px-8 py-4 bg-gradient-to-r from-[#45a8ea] via-[#a29562] to-[#5c236f] border-1 border-[#8675c1] rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <span className="relative z-10 flex items-center gap-2">
               <Github className="w-5 h-5" />
               View My Work
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#45a8ea] via-[#a29562] to-[#5c236f] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <Sparkles className="absolute right-2 top-2 w-4 h-4 text-white/50 group-hover:animate-spin" />
           </a>
 
           <a
             href="/Internship_Resume.pdf"
             download
-            className="group px-8 py-4 bg-white/5 border-2 border-white/10 backdrop-blur-sm rounded-xl font-semibold text-white flex items-center gap-2 transition-all duration-300 hover:bg-white/10 hover:border-cyan-500/50 hover:scale-105 active:scale-95"
+            className="group px-8 py-4 bg-[#00000056] border-1 border-[#00e5ff] backdrop-blur-sm rounded-xl font-semibold text-white flex items-center gap-2 transition-all duration-300 hover:bg-white/10 hover:border-[#FFFFFF] hover:scale-105 active:scale-95"
           >
             <Download className="w-5 h-5 group-hover:animate-bounce" />
             Download CV
