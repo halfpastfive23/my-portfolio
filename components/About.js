@@ -43,14 +43,14 @@ export default function About() {
           className="mb-16"
         >
           <div className="flex items-center gap-2 mb-3">
-            <Sparkles className="w-5 h-5 text-purple-400" />
-            <span className="text-purple-400 font-semibold tracking-wider uppercase text-xs">
+            <Sparkles className="w-5 h-5 text-[#dbc130]" />
+            <span className="text-[#dbc130] font-semibold tracking-wider uppercase text-xs">
               About Me
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
             Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FFFFFF] via-[#6cb2be] to-[#0e4490] bg-clip-text text-transparent">
               Manojkumar
             </span>
           </h2>
@@ -69,7 +69,7 @@ export default function About() {
             <div className="relative group">
               {/* Geometric Accent Shapes Instead of Outer Glow */}
               <motion.div
-                className="absolute -top-8 -right-8 w-20 h-20 border-2 border-purple-500/30 rounded-lg"
+                className="absolute -top-8 -right-2 w-20 h-20 border-2 border-purple-500/30 rounded-lg"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
@@ -77,6 +77,11 @@ export default function About() {
                 className="absolute -bottom-8 -left-8 w-16 h-16 border-2 border-emerald-500/30 rounded-full"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute -top-5 -left-20 w-30 h-30 border-2 border-[#1b86d948] rounded-lg"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
 
               {/* Image Container */}
@@ -120,10 +125,10 @@ export default function About() {
             className="lg:col-span-7 space-y-6"
           >
             {/* Description Card */}
-            <div className="bg-[#ffffffcf] rounded-2xl p-8 border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+            <div className="bg-[#ffffffcf] rounded-2xl p-8 border border-gray-800 hover:border-[#00aeff] transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
-                  <User className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFFFFF] via-[#8bd0f3] to-[#021370] flex items-center justify-center flex-shrink-0">
+                  <User className="w-6 h-6 text-[#ffffff]" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[#0000008d] mb-2">
@@ -150,10 +155,10 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-[#13262fee] rounded-xl p-5 border border-gray-800 hover:border-purple-500/50 transition-all duration-300"
+                  className="group relative bg-[#13262fee] rounded-xl p-5 border border-gray-800 hover:border-[#7300ff] transition-all duration-300"
                 >
-                  {/* Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                  {/* Glow for group of small containers*/}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#e3d0f1] via-[#c91313] to-[#1c0189] opacity-70 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
 
                   {/* Icon */}
                   <div
@@ -164,8 +169,10 @@ export default function About() {
 
                   {/* Text */}
                   <div className="relative">
-                    <p className="text-xs text-gray-500 mb-1">{item.label}</p>
-                    <p className="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors">
+                    <p className="text-xs text-[#f4f3f3e1] mb-1">
+                      {item.label}
+                    </p>
+                    <p className="text-sm font-semibold text-[#f3f5f4] group-hover:text-[#01c5b4] transition-colors">
                       {item.value}
                     </p>
                   </div>
