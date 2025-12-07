@@ -168,7 +168,11 @@ export default function Contact3D() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden py-20">
+    <section
+      id="contact"
+      ref={containerRef}
+      className="relative overflow-hidden py-20"
+    >
       {/* 3D Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />
 

@@ -28,7 +28,7 @@ export default function ProjectShowcase() {
   ];
 
   return (
-    <div className="bg-[#0c1826] pb-20 md:pb-28">
+    <section id="projects" className="bg-[#0c1826] pb-20 md:pb-28">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -246,6 +246,6 @@ export default function ProjectShowcase() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

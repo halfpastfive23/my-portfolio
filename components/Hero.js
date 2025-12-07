@@ -29,7 +29,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-visible bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-visible bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
       <div className="absolute inset-0 overflow-visible pointer-events-none">
