@@ -51,7 +51,7 @@ function TiltCard({ children, href, target, rel }) {
       whileTap={{ scale: 0.95 }}
       className="relative group"
     >
-      <div className="absolute inset-0 rounded-xl blur-xl opacity-0 group-hover:opacity-50 bg-gradient-to-r from-purple-500 via-pink-500 to-emerald-500 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-xl blur-xl opacity-0 group-hover:opacity-25 bg-gradient-to-r from-[#ffffff] to-[#ffffff] transition-opacity duration-500" />
       {children}
     </motion.a>
   );
@@ -203,7 +203,7 @@ export default function Contact3D() {
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
           <TiltCard href="mailto:its.manojkumar23@gmail.com">
-            <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg shadow-md text-sm sm:text-base">
+            <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#8523e7] to-[#2a034c] text-white rounded-lg shadow-md text-sm sm:text-base">
               <Mail className="w-5 h-5" />
               Email Me
             </div>
@@ -214,7 +214,7 @@ export default function Contact3D() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0077B5] to-[#005983] text-white rounded-lg shadow-md text-sm sm:text-base">
+            <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0077B5] to-[#102028] text-white rounded-lg shadow-md text-sm sm:text-base">
               <Linkedin className="w-5 h-5" />
               LinkedIn
             </div>
